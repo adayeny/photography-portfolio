@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio | PARS Photography</title>
+<meta name="description" content="A look at recent real estate photography, aerial, twilight, and 3D tour work by PARS Photography.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <a href="index.html" class="brand">
+            <img src="assets/images/logo.png" alt="PARS Photography">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="home-prep.html">Home Prep Guide</a></li>
+                <li><a href="index.html#book">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-cta">
+            <!-- TODO: once your Aryeo account is ready, point this at your Aryeo order-form URL -->
+            <a href="index.html#book" class="btn btn-gold"><span class="btn-label-full">Order&nbsp;Now</span><span aria-hidden="true">&rarr;</span></a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <section class="page-hero">
+        <div class="container section-head">
+            <p class="eyebrow">Recent Work</p>
+            <h1>Portfolio</h1>
+            <p>A sample of interiors, exteriors, aerial, twilight, and 3D/floor plan work. Filter by category below.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="portfolio-filters">
+                <button class="filter-btn is-active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="interiors">Interiors</button>
+                <button class="filter-btn" data-filter="exteriors">Exteriors</button>
+                <button class="filter-btn" data-filter="aerial">Aerial</button>
+                <button class="filter-btn" data-filter="twilight">Twilight</button>
+                <button class="filter-btn" data-filter="3d">3D &amp; Floor Plans</button>
+            </div>
+
+            <!--
+                TODO: replace each placeholder-fill div below with a real <img src="..." alt="...">
+                once you have Santa Fe/Albuquerque or Phoenix/Scottsdale photos to drop in.
+                Keep the data-category + data-caption attributes so filtering and the lightbox
+                keep working with no other changes.
+            -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="interiors" data-caption="Living Room &mdash; Santa Fe, NM">
+                    <span class="tag">Interiors</span>
+                    <img src="assets/images/portfolio/interior-living-room-1.jpg" alt="Historic adobe living room, Santa Fe" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="interiors" data-caption="Kitchen &mdash; Santa Fe, NM">
+                    <span class="tag">Interiors</span>
+                    <img src="assets/images/portfolio/interior-kitchen-1.jpg" alt="Kitchen, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="interiors" data-caption="Kitchen &amp; Dining">
+                    <span class="tag">Interiors</span>
+                    <img src="assets/images/portfolio/interior-kitchen-2.jpg" alt="Kitchen and dining area" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="interiors" data-caption="Bedroom &mdash; Santa Fe, NM">
+                    <span class="tag">Interiors</span>
+                    <img src="assets/images/portfolio/interior-bedroom-1.jpg" alt="Bedroom, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="interiors" data-caption="Bathroom &mdash; Santa Fe, NM">
+                    <span class="tag">Interiors</span>
+                    <img src="assets/images/portfolio/interior-bathroom-1.jpg" alt="Bathroom, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="exteriors" data-caption="Entrance &mdash; Santa Fe, NM">
+                    <span class="tag">Exteriors</span>
+                    <img src="assets/images/portfolio/exterior-entrance-1.jpg" alt="Entrance, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="exteriors" data-caption="Courtyard &amp; Exterior">
+                    <span class="tag">Exteriors</span>
+                    <img src="assets/images/portfolio/exterior-side-1.jpg" alt="Courtyard exterior, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="exteriors" data-caption="Exterior &mdash; Santa Fe, NM">
+                    <span class="tag">Exteriors</span>
+                    <img src="assets/images/portfolio/exterior-front-1.jpg" alt="Exterior, Santa Fe listing" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="exteriors" data-caption="Property Exterior">
+                    <span class="tag">Exteriors</span>
+                    <img src="assets/images/portfolio/exterior-property-1.jpg" alt="Property exterior" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="aerial" data-caption="Aerial / Drone">
+                    <span class="tag">Aerial</span>
+                    <img src="assets/images/portfolio/aerial-drone-1.jpg" alt="Aerial drone photo of a commercial property at dusk" loading="lazy">
+                </div>
+                <div class="portfolio-item" data-category="twilight" data-caption="Twilight Exterior">
+                    <span class="tag">Twilight</span>
+                    <div class="placeholder-fill">Add Photo &mdash; Twilight Exterior</div>
+                </div>
+                <div class="portfolio-item" data-category="twilight" data-caption="Twilight Pool">
+                    <span class="tag">Twilight</span>
+                    <div class="placeholder-fill">Add Photo &mdash; Twilight Pool</div>
+                </div>
+                <div class="portfolio-item" data-category="3d" data-caption="Floor Plan">
+                    <span class="tag">3D &amp; Floor Plans</span>
+                    <div class="placeholder-fill">Add Photo &mdash; Floor Plan</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-band" id="book">
+        <div class="container">
+            <p class="eyebrow">Ready When You Are</p>
+            <h2>Ready to book your next listing shoot?</h2>
+            <!-- TODO: once Aryeo is set up, replace the two placeholders below with your real phone/email (or the Aryeo order link) -->
+            <p>Call or email to check availability, or place an order once your online booking link is live.</p>
+            <div class="cta-actions">
+                <a href="tel:+1XXXXXXXXXX" class="btn btn-gold">Call [Add Phone Number]</a>
+                <a href="mailto:hello@pars.photography" class="btn btn-outline">Email hello@pars.photography</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div class="lightbox">
+    <div class="lightbox-inner"></div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="assets/images/logo.png" alt="PARS Photography">
+                </div>
+                <p>Real estate photography, drone, video, and 3D tours for agents across Greater Phoenix, Arizona.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="home-prep.html">Home Prep Guide</a></li>
+                    <li><a href="index.html#testimonials">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Photography</a></li>
+                    <li><a href="index.html#services">Aerial &amp; Drone</a></li>
+                    <li><a href="index.html#services">Video Walkthroughs</a></li>
+                    <li><a href="index.html#services">3D Tours &amp; Floor Plans</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+1XXXXXXXXXX">[Add Phone Number]</a></li>
+                    <li><a href="mailto:hello@pars.photography">hello@pars.photography</a></li>
+                    <li>Serving Greater Phoenix, AZ</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; <span id="year"></span> PARS Photography</span>
+            <span>pars.photography</span>
+        </div>
+    </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

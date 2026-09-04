@@ -437,6 +437,16 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
     white-space: nowrap;
     opacity: 0.7;
 }
+.marquee-track .logo-slot img {
+    height: 34px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+}
+.marquee-track .logo-slot img:hover { opacity: 0.95; }
 @keyframes marquee-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -487,6 +497,111 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
     font-size: 0.85rem;
     font-weight: 600;
 }
+
+/* -------------------------------------------------- Portfolio grid + filters */
+
+.portfolio-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 44px;
+}
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--text-muted);
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.filter-btn:hover { color: var(--text); border-color: var(--gold); }
+.filter-btn.is-active {
+    background: var(--gradient-gold);
+    color: #14110a;
+    border-color: transparent;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px;
+}
+.portfolio-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    background: var(--bg-elevated);
+    transition: opacity .25s ease, transform .25s ease;
+}
+.portfolio-item.is-hidden { display: none; }
+.portfolio-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+.portfolio-item:hover img { transform: scale(1.06); }
+.portfolio-item .tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(10,10,10,0.65);
+    border: 1px solid var(--border-strong);
+    color: var(--gold-light);
+    padding: 4px 10px;
+    border-radius: 999px;
+    z-index: 2;
+}
+.portfolio-item .placeholder-fill { font-size: 0.78rem; }
+
+/* Lightbox */
+.lightbox {
+    position: fixed; inset: 0;
+    background: rgba(6,6,6,0.93);
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 30px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox-inner { max-width: min(1100px, 90vw); max-height: 86vh; position: relative; text-align: center; }
+.lightbox-inner img { max-width: 100%; max-height: 78vh; border: 1px solid var(--border-strong); border-radius: var(--radius); }
+.lightbox-placeholder {
+    width: min(900px, 90vw);
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(135deg, #161616, #161616 12px, #131313 12px, #131313 24px);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    color: var(--text-faint);
+    font-size: 0.95rem;
+}
+.lightbox-caption { margin-top: 16px; color: var(--text-muted); font-size: 0.88rem; }
+.lightbox-close {
+    position: absolute; top: -50px; right: 0;
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+}
+.lightbox-close:hover { border-color: var(--gold); color: var(--gold-light); }
 
 /* -------------------------------------------------- Testimonials */
 
