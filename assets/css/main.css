@@ -131,12 +131,10 @@ p { margin: 0 0 1em; color: var(--text-muted); }
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 500;
-    padding: 22px 0;
     background: linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0));
-    transition: background 0.35s ease, padding 0.35s ease, box-shadow .35s ease;
+    transition: background 0.35s ease, box-shadow .35s ease;
 }
 .site-header.is-scrolled {
-    padding: 14px 0;
     background: rgba(9, 9, 9, 0.92);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px -20px rgba(0,0,0,0.8);
@@ -147,9 +145,14 @@ p { margin: 0 0 1em; color: var(--text-muted); }
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    height: 100px;
+    transition: height 0.35s ease;
 }
-.brand { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 1.05rem; letter-spacing: 0.04em; }
-.brand img { height: 42px; width: auto; }
+.site-header.is-scrolled .container { height: 75px; }
+/* Logo is sized to fill the header bar exactly: .brand stretches to the
+   container's full height, and the image fills .brand at 100%. */
+.brand { display: flex; align-items: center; align-self: stretch; gap: 12px; font-family: var(--serif); font-size: 1.05rem; letter-spacing: 0.04em; }
+.brand img { height: 100%; width: auto; }
 
 .nav-links {
     display: flex;
@@ -402,14 +405,14 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
 
 /* -------------------------------------------------- Logo marquee */
 
-.marquee-section { padding: 36px 0; border-bottom: 1px solid var(--border); }
+.marquee-section { padding: 16px 0; border-bottom: 1px solid var(--border); }
 .marquee-label {
     text-align: center;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-faint);
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 .marquee {
     overflow: hidden;
@@ -443,9 +446,9 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
     opacity: 0.7;
 }
 .marquee-track .logo-slot img {
-    height: 180px;
+    height: 200px;
     width: auto;
-    max-width: 400px;
+    max-width: 445px;
     object-fit: contain;
     filter: grayscale(1) brightness(0) invert(1);
     opacity: 0.8;
@@ -774,7 +777,7 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
     border-bottom: 1px solid var(--border);
 }
 .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-family: var(--serif); font-size: 1.1rem; }
-.footer-brand img { height: 40px; }
+.footer-brand img { height: 100px; width: auto; }
 .footer-col h4 {
     font-family: var(--sans);
     font-size: 0.78rem;
