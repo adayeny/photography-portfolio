@@ -85,4 +85,62 @@
         });
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     }
+
+    // Order form: submit via fetch so a successful booking request shows an
+    // inline message instead of redirecting to Web3Forms' own page.
+    document.querySelectorAll('.order-form').forEach(function (form) {
+        var statusEl = form.querySelector('.form-status');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Honeypot: if this hidden field got filled in, silently drop it.
+            var honeypot = form.querySelector('input[name="botcheck"]');
+            if (honeypot && honeypot.checked) return;
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            var formData = new FormData(form);
+            var payload = {};
+            formData.forEach(function (value, key) {
+                if (key === 'botcheck') return;
+                if (payload[key] !== undefined) {
+                    payload[key] = Array.isArray(payload[key]) ? payload[key].concat(value) : [payload[key], value];
+                } else {
+                    payload[key] = value;
+                }
+            });
+            Object.keys(payload).forEach(function (key) {
+                if (Array.isArray(payload[key])) payload[key] = payload[key].join(', ');
+            });
+
+            if (submitBtn) submitBtn.disabled = true;
+            if (statusEl) { statusEl.textContent = 'Sending...'; statusEl.className = 'form-status'; }
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify(payload)
+            })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (data.success) {
+                        form.reset();
+                        if (statusEl) {
+                            statusEl.textContent = "Thanks — your request is in. We'll confirm shortly.";
+                            statusEl.className = 'form-status is-success';
+                        }
+                    } else {
+                        throw new Error(data.message || 'Submission failed');
+                    }
+                })
+                .catch(function () {
+                    if (statusEl) {
+                        statusEl.textContent = "Something went wrong sending that. Please call or email us directly.";
+                        statusEl.className = 'form-status is-error';
+                    }
+                })
+                .finally(function () {
+                    if (submitBtn) submitBtn.disabled = false;
+                });
+        });
+    });
 })();

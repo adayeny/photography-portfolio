@@ -25,12 +25,12 @@
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="home-prep.html">Home Prep Guide</a></li>
-                <li><a href="index.html#book">Contact</a></li>
+                <li><a href="#book">Contact</a></li>
             </ul>
         </nav>
         <div class="nav-cta">
             <!-- TODO: once your Aryeo account is ready, point this at your Aryeo order-form URL -->
-            <a href="index.html#book" class="btn btn-gold"><span class="btn-label-full">Order&nbsp;Now</span><span aria-hidden="true">&rarr;</span></a>
+            <a href="#book" class="btn btn-gold"><span class="btn-label-full">Order&nbsp;Now</span><span aria-hidden="true">&rarr;</span></a>
             <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
@@ -47,7 +47,7 @@
             <p class="lead">Professional photography, aerial drone, video walkthroughs, and 3D tours &mdash; delivered fast, priced clearly, built for agents who need listings ready to market yesterday.</p>
             <div class="hero-actions">
                 <a href="pricing.html" class="btn btn-gold">View Pricing</a>
-                <a href="index.html#book" class="btn btn-outline">Order Now</a>
+                <a href="#book" class="btn btn-outline">Order Now</a>
             </div>
 
             <!-- TODO: replace with a real hero photo or short looping video from a recent shoot -->
@@ -119,7 +119,7 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Online gallery &amp; downloads</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>24&ndash;48hr delivery</li>
                     </ul>
-                    <a href="index.html#book" class="btn btn-outline btn-block">Order Now</a>
+                    <a href="#book" class="btn btn-outline btn-block">Order Now</a>
                 </div>
                 <div class="price-card is-featured">
                     <span class="badge">Most Booked</span>
@@ -132,7 +132,7 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>3D home tour</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Single-page floor plan</li>
                     </ul>
-                    <a href="index.html#book" class="btn btn-gold btn-block">Order Now</a>
+                    <a href="#book" class="btn btn-gold btn-block">Order Now</a>
                 </div>
                 <div class="price-card">
                     <h3>Showcase</h3>
@@ -144,7 +144,7 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Twilight photo session</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Custom single-property website</li>
                     </ul>
-                    <a href="index.html#book" class="btn btn-outline btn-block">Order Now</a>
+                    <a href="#book" class="btn btn-outline btn-block">Order Now</a>
                 </div>
             </div>
             <p class="pricing-note"><a href="pricing.html" class="btn-ghost">See full pricing &amp; à la carte add-ons &rarr;</a></p>
@@ -227,11 +227,72 @@
     <section class="cta-band" id="book">
         <div class="container">
             <p class="eyebrow">Ready When You Are</p>
-            <h2>Ready to book your next listing shoot?</h2>
-            <!-- TODO: once Aryeo is set up, replace the two placeholders below with your real phone/email (or the Aryeo order link) -->
-            <p>Call or email to check availability, or place an order once your online booking link is live.</p>
-            <div class="cta-actions">
-                <a href="tel:+1XXXXXXXXXX" class="btn btn-gold">Call [Add Phone Number]</a>
+            <h2>Book your next listing shoot</h2>
+            <p>Send over the details below and we&rsquo;ll confirm your date. Prefer to talk first? Use the phone/email below.</p>
+
+            <!-- TODO: swap this Web3Forms-powered form for an Aryeo order-form embed if/when you upgrade to Aryeo Pro -->
+            <form class="order-form" novalidate>
+                <input type="hidden" name="access_key" value="a080c8e5-f58e-45e9-a019-1223a6b12da9">
+                <input type="hidden" name="subject" value="New Order Request &mdash; PARS Photography">
+                <input type="hidden" name="from_name" value="PARS Photography Website">
+                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="of-name">Name</label>
+                        <input type="text" id="of-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="of-email">Email</label>
+                        <input type="email" id="of-email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="of-phone">Phone</label>
+                        <input type="tel" id="of-phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="of-date">Preferred Date &amp; Time</label>
+                        <input type="text" id="of-date" name="preferred_date" placeholder="e.g. Thu 9/11, morning">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="of-address">Property Address</label>
+                    <input type="text" id="of-address" name="property_address" required>
+                </div>
+                <div class="form-group">
+                    <label for="of-package">Package</label>
+                    <select id="of-package" name="package">
+                        <option>Essential</option>
+                        <option>Signature</option>
+                        <option>Showcase</option>
+                        <option>Not sure yet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Add-Ons</label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="addons" value="Drone / Aerial"> Drone / Aerial</label>
+                        <label><input type="checkbox" name="addons" value="Twilight"> Twilight</label>
+                        <label><input type="checkbox" name="addons" value="Video Walkthrough"> Video Walkthrough</label>
+                        <label><input type="checkbox" name="addons" value="3D Tour"> 3D Tour</label>
+                        <label><input type="checkbox" name="addons" value="Floor Plan"> Floor Plan</label>
+                        <label><input type="checkbox" name="addons" value="Virtual Staging"> Virtual Staging</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="of-notes">Notes</label>
+                    <textarea id="of-notes" name="message" placeholder="Square footage, gate code, anything else we should know"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-gold btn-block">Submit Order Request</button>
+                <p class="form-status" aria-live="polite"></p>
+            </form>
+
+            <!-- TODO: replace with your real phone number -->
+            <div class="cta-actions" style="margin-top:34px;">
+                <a href="tel:+1XXXXXXXXXX" class="btn btn-outline">Call [Add Phone Number]</a>
                 <a href="mailto:hello@pars.photography" class="btn btn-outline">Email hello@pars.photography</a>
             </div>
         </div>

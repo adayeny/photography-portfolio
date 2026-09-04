@@ -402,14 +402,14 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
 
 /* -------------------------------------------------- Logo marquee */
 
-.marquee-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+.marquee-section { padding: 90px 0; border-bottom: 1px solid var(--border); }
 .marquee-label {
     text-align: center;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-faint);
-    margin-bottom: 34px;
+    margin-bottom: 48px;
 }
 .marquee {
     overflow: hidden;
@@ -418,8 +418,9 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
 }
 .marquee-track {
     display: flex;
+    align-items: center;
     width: max-content;
-    gap: 70px;
+    gap: 100px;
     animation: marquee-scroll 32s linear infinite;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
@@ -427,26 +428,30 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    padding: 0 6px;
+    padding: 0 10px;
+    /* Text placeholder styling (dashed box) still applies until every
+       slot below has a real <img> in it. */
     font-family: var(--serif);
     font-size: 1.1rem;
     color: var(--text-faint);
+    white-space: nowrap;
+}
+.marquee-track .logo-slot:has(> :only-child:not(img)) {
+    height: 60px;
     border: 1px dashed var(--border-strong);
     border-radius: var(--radius);
-    white-space: nowrap;
     opacity: 0.7;
 }
 .marquee-track .logo-slot img {
-    height: 34px;
+    height: 140px;
     width: auto;
-    max-width: 140px;
+    max-width: 320px;
     object-fit: contain;
     filter: grayscale(1) brightness(0) invert(1);
-    opacity: 0.55;
+    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
-.marquee-track .logo-slot img:hover { opacity: 0.95; }
+.marquee-track .logo-slot img:hover { opacity: 1; }
 @keyframes marquee-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -678,6 +683,85 @@ table.addons td:last-child, table.addons th:last-child { text-align: right; colo
 .cta-band h2 { max-width: 620px; margin: 0 auto 20px; }
 .cta-band p { max-width: 520px; margin: 0 auto 34px; }
 .cta-actions { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+/* -------------------------------------------------- Order form */
+
+.order-form {
+    max-width: 640px;
+    margin: 40px auto 0;
+    text-align: left;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+}
+.order-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 560px) {
+    .order-form .form-row { grid-template-columns: 1fr; }
+}
+.order-form .form-group { margin-bottom: 20px; }
+.order-form label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+}
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"],
+.order-form select,
+.order-form textarea {
+    width: 100%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.94rem;
+    padding: 12px 14px;
+    transition: border-color 0.25s ease;
+}
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+.order-form textarea { resize: vertical; min-height: 90px; }
+.order-form .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+.order-form .checkbox-grid label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--text-muted);
+    text-transform: none;
+    cursor: pointer;
+}
+.order-form .checkbox-grid input { accent-color: var(--gold); width: 16px; height: 16px; }
+.order-form .hp-field { position: absolute; left: -9999px; opacity: 0; }
+.order-form .form-status {
+    margin: 16px 0 0;
+    font-size: 0.88rem;
+    min-height: 1.2em;
+}
+.order-form .form-status.is-success { color: var(--gold-light); }
+.order-form .form-status.is-error { color: #e08a7d; }
+.order-form button[disabled] { opacity: 0.6; cursor: not-allowed; }
 
 /* -------------------------------------------------- Footer */
 
