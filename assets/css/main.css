@@ -281,6 +281,32 @@ p { margin: 0 0 1em; color: var(--text-muted); }
     .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 30px; }
 }
 
+/* -------------------------------------------------- Genre picker (hub homepage) */
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+.genre-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.genre-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.genre-card .icon {
+    width: 44px; height: 44px;
+    margin-bottom: 24px;
+    color: var(--gold);
+}
+.genre-card h3 { margin-bottom: 10px; }
+.genre-card p { font-size: 0.92rem; flex-grow: 1; }
+.genre-card .btn-ghost { align-self: flex-start; padding-left: 0; padding-right: 0; margin-top: 12px; }
+
 /* -------------------------------------------------- Services */
 
 .services-grid {
